@@ -1,0 +1,13 @@
+name: Release Worker
+
+on:
+  workflow_call:
+
+concurrency:
+  group: "release-worker"
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo work

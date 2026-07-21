@@ -1,0 +1,46 @@
+{
+  "diagnostics": [
+    {
+      "callSite": {
+        "line": 12,
+        "path": ".github/workflows/gateway.yml"
+      },
+      "callee": {
+        "line": 7,
+        "path": ".github/workflows/worker-a.yaml"
+      },
+      "caller": {
+        "line": 6,
+        "path": ".github/workflows/gateway.yml"
+      },
+      "effectiveGroup": "release-Release Gateway",
+      "message": "caller and called workflow resolve to the same workflow-level concurrency group",
+      "remediation": "keep concurrency ownership in the caller and remove it from the called workflow",
+      "ruleId": "GCC001",
+      "severity": "error"
+    },
+    {
+      "callSite": {
+        "line": 10,
+        "path": ".github/workflows/gateway.yml"
+      },
+      "callee": {
+        "line": 7,
+        "path": ".github/workflows/worker-z.yml"
+      },
+      "caller": {
+        "line": 6,
+        "path": ".github/workflows/gateway.yml"
+      },
+      "effectiveGroup": "release-Release Gateway",
+      "message": "caller and called workflow resolve to the same workflow-level concurrency group",
+      "remediation": "keep concurrency ownership in the caller and remove it from the called workflow",
+      "ruleId": "GCC001",
+      "severity": "error"
+    }
+  ],
+  "root": "\u003cROOT\u003e",
+  "schemaVersion": 1,
+  "toolVersion": "0.1.0-dev",
+  "unknowns": []
+}

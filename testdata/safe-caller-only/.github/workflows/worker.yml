@@ -1,0 +1,10 @@
+name: Release Worker
+
+on:
+  workflow_call:
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo work

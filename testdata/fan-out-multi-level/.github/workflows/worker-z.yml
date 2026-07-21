@@ -1,0 +1,13 @@
+name: Worker Z
+
+on:
+  workflow_call:
+
+concurrency:
+  group: release-${{ github.workflow }}
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo z

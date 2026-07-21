@@ -1,0 +1,12 @@
+name: Leaf
+
+on:
+  workflow_call:
+
+concurrency: leaf-only
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo leaf

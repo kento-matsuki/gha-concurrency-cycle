@@ -1,0 +1,12 @@
+name: Release Gateway
+
+on: workflow_dispatch
+
+concurrency:
+  group: release-${{ github.workflow }}
+
+jobs:
+  call-z:
+    uses: ./.github/workflows/worker-z.yml
+  call-a:
+    uses: ./.github/workflows/worker-a.yaml

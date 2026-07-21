@@ -1,0 +1,11 @@
+name: Worker A
+
+on:
+  workflow_call:
+
+concurrency:
+  group: release-${{ github.workflow }}
+
+jobs:
+  call-leaf:
+    uses: ./.github/workflows/leaf.yml

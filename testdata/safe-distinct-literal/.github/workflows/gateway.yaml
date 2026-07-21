@@ -1,0 +1,9 @@
+name: Release Gateway
+
+on: workflow_dispatch
+
+concurrency: release-gateway
+
+jobs:
+  call-worker:
+    uses: ./.github/workflows/worker.yml

@@ -1,0 +1,11 @@
+name: Release Gateway
+
+on: workflow_dispatch
+
+concurrency:
+  group: release-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  call-worker:
+    uses: ./.github/workflows/worker.yml

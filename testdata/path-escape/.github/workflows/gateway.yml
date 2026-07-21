@@ -1,0 +1,9 @@
+name: Escape Attempt
+
+on: workflow_dispatch
+
+concurrency: release
+
+jobs:
+  call-outside:
+    uses: ./.github/workflows/../../../../outside.yml

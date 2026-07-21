@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 2,
+  "action": "create",
+  "owner": "kento-matsuki",
+  "name": "gha-concurrency-cycle",
+  "description": "Detect static GitHub Actions reusable-workflow concurrency deadlocks before they cancel a run.",
+  "topics": [
+    "kento-oss",
+    "github-actions",
+    "ci",
+    "static-analysis"
+  ],
+  "candidateId": "20260717T120911Z-5f11",
+  "targetUsers": "Platform engineers and repository maintainers using same-repository reusable GitHub Actions workflows with workflow-level concurrency.",
+  "jobToBeDone": "Detect statically resolvable caller and called-workflow effective concurrency-group collisions before a push causes cancellation or a wait cycle.",
+  "distributionPath": "Checksum-verified Linux and macOS release binaries, go install, and a composite GitHub Action using the same CLI contract.",
+  "successMetric": "Within 30 days, one unrelated external repository uses the tool and directly reports or demonstrates a real collision found before merge and fixed with caller-only ownership.",
+  "reviewAfterDays": 1,
+  "opportunityScore": 78,
+  "demandEvidence": [
+    {
+      "url": "https://qiita.com/1280itsuya/items/802e25cccd9abd742701",
+      "kind": "after-action",
+      "independenceKey": "independent Japanese caller-callee cancellation after-action"
+    },
+    {
+      "url": "https://tech.pepabo.com/2026/07/03/monorepo-ci-orchestrator-migration/",
+      "kind": "team-migration",
+      "independenceKey": "Pepabo monorepo CI orchestration migration team"
+    },
+    {
+      "url": "https://github.com/github/gh-aw/issues/42846",
+      "kind": "upstream-issue",
+      "independenceKey": "github gh-aw reusable workflow cancellation project"
+    }
+  ],
+  "alternatives": [
+    {
+      "name": "GitHub reusable workflow concurrency documentation",
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations",
+      "tested": true,
+      "gap": "Documents the caller cancellation mechanism but does not preflight a repository workflow graph before push."
+    },
+    {
+      "name": "actionlint 1.7.12",
+      "url": "https://github.com/rhysd/actionlint/releases/tag/v1.7.12",
+      "tested": true,
+      "gap": "Passed both the validated collision and safe fixtures without distinguishing the caller-context effective group cycle."
+    },
+    {
+      "name": "zizmor 1.27.0",
+      "url": "https://github.com/zizmorcore/zizmor/releases/tag/v1.27.0",
+      "tested": true,
+      "gap": "Provides broad GitHub Actions security analysis but did not distinguish the validated collision and safe fixtures."
+    },
+    {
+      "name": "act 0.2.89",
+      "url": "https://github.com/nektos/act/releases/tag/v0.2.89",
+      "tested": true,
+      "gap": "Runs workflows locally but did not expose GitHub service-side caller concurrency-group resolution for the fixture pair."
+    }
+  ],
+  "duplicateSearch": {
+    "completed": true,
+    "summary": "Compared GitHub documentation and installed actionlint, zizmor, and act against the same collision and safe fixtures; none produced the bounded GCC001 distinction."
+  },
+  "differentiation": "A read-only offline analyzer for only statically certain same-repository caller-context workflow-level concurrency cycles, with deterministic text and JSON diagnostics.",
+  "testCommand": "scripts/publisher-gate.sh",
+  "license": "Apache-2.0",
+  "commitMessage": "Publish gha-concurrency-cycle v0.1.0"
+}

@@ -1,0 +1,10 @@
+name: Cycle A
+
+on:
+  workflow_call:
+
+concurrency: cycle-a
+
+jobs:
+  call-b:
+    uses: ./.github/workflows/b.yml
