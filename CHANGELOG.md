@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add an owner-repairable release workflow and make all four archives byte-reproducible with `SHA256SUMS`.
+- Build the composite Action from its pinned source revision so it no longer requires unavailable release binary assets.
 - Mirror the publisher's tracked-file, payload-size, credential-path, and credential-content limits in the local release gate.
 
 All notable changes to this project will be documented here.

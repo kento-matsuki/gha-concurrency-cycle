@@ -10,21 +10,21 @@ Maintained by Matsuki Kento ([@kento-matsuki](https://github.com/kento-matsuki))
 
 ## Installation
 
-Release binaries are not published yet. From a source checkout, install with Go 1.24 or later:
+Install the published `v0.1.0` release with Go 1.24 or later:
+
+```sh
+go install github.com/kento-matsuki/gha-concurrency-cycle/cmd/gha-concurrency-cycle@v0.1.0
+```
+
+From a source checkout, the equivalent command is:
 
 ```sh
 go install ./cmd/gha-concurrency-cycle
 ```
 
-After the first release, the source installation path will be:
-
-```sh
-go install github.com/kento-matsuki/gha-concurrency-cycle/cmd/gha-concurrency-cycle@latest
-```
-
 ## Quick start
 
-Requires Go 1.24 or later while release binaries are not yet published.
+Requires Go 1.24 or later for a source checkout.
 
 ```sh
 go run ./cmd/gha-concurrency-cycle check --root testdata/conflict-basic
@@ -61,13 +61,16 @@ Pin the Action to an immutable commit SHA in production. A release tag is shown 
     root: .
 ```
 
-The composite Action downloads the matching Linux or macOS release archive, verifies it against the release's `checksums.txt`, and runs the same CLI and exit contract documented above. It supports GitHub-hosted `amd64` and `arm64` runners. Windows and self-hosted runners are outside the v0.1 support contract.
+The composite Action pins `actions/setup-go` to an immutable commit, selects the version in this revision's `go.mod`, builds the CLI from the checked-out Action source, and runs the same exit contract documented above. It supports GitHub-hosted Linux and macOS runners; Windows and self-hosted runners are outside the v0.1 support contract.
 
-For a standalone install, download the archive for your OS and architecture plus `checksums.txt` from the GitHub release, verify its SHA-256 entry, and extract `gha-concurrency-cycle` onto your `PATH`. Source installs remain available with:
+For a standalone install, use the source release with:
 
 ```sh
-go install github.com/kento-matsuki/gha-concurrency-cycle/cmd/gha-concurrency-cycle@latest
+go install github.com/kento-matsuki/gha-concurrency-cycle/cmd/gha-concurrency-cycle@v0.1.0
 ```
+
+The release also provides checksum-indexed Linux and macOS archives for amd64
+and arm64. Verify the selected archive against `SHA256SUMS` before extraction.
 
 ## Supported in this increment
 

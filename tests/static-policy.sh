@@ -34,3 +34,9 @@ if git grep -I -n -E \
   echo 'secret-like material found in tracked files' >&2
   exit 1
 fi
+
+grep -Eq 'uses: actions/setup-go@[0-9a-f]{40}([[:space:]]|$)' action.yml
+if grep -Eq 'uses: actions/setup-go@v[0-9]' action.yml; then
+  echo 'mutable setup-go reference found in composite Action' >&2
+  exit 1
+fi

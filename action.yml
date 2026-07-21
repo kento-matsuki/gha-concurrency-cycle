@@ -11,20 +11,19 @@ inputs:
     description: Output format (text or json)
     required: false
     default: text
-  version:
-    description: Release version of the CLI binary
-    required: false
-    default: 0.1.0
-
 runs:
   using: composite
   steps:
+    - name: Set up Go for the source-built CLI
+      uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+      with:
+        go-version-file: ${{ github.action_path }}/go.mod
+        cache: false
     - name: Check reusable-workflow concurrency
       shell: bash
       env:
         GCC_INPUT_ROOT: ${{ inputs.root }}
         GCC_INPUT_FORMAT: ${{ inputs.format }}
-        GCC_INPUT_VERSION: ${{ inputs.version }}
       run: "$GITHUB_ACTION_PATH/scripts/action.sh"
 
 branding:

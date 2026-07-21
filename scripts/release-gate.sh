@@ -12,4 +12,5 @@ tests/publisher-contract.sh
 tests/publisher-payload.sh
 tests/action-smoke.sh
 tests/release-package.sh
+tests/release-workflow.sh
 tests/quickstart-clean.sh

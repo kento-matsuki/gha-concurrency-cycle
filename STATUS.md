@@ -3,7 +3,8 @@
 ## Project metadata
 
 - Finding ID: `20260717T120911Z-5f11`
-- Project state: `publish-ready`
+- Project state: `published`
+- Repository: `https://github.com/kento-matsuki/gha-concurrency-cycle`
 - Opportunity score: `78/100`
 - Planned at: `2026-07-18T12:13:05Z`
 - Owner: `@kento-matsuki` (automated AI agent)
@@ -227,3 +228,12 @@ README、CLI reference、GitHub Action usage、diagnostic reference、limitation
 - OSV official queryは`gopkg.in/yaml.v3 v3.0.1`のvulnerability 0件、deps.dev official metadataはMIT／Apache-2.0、advisory 0件を返した。Broker enable flag、broker config、専用executableは存在し、GitHub-native distributionに未対応registry blockerはない。
 - READMEと`.kento-oss.json`はMatsuki Kento、`@kento-matsuki`、automated AI agentを明示する。V2 requestは3独立context、3 evidence kind、4 tested alternatives、30日直接採用metric、24時間後reviewをbindingする。
 - 全review gateを通過したためproject stateを`publish-ready`へ進めた。Actual publisher、Lambda、GitHub writeはreview modeでは実行していない。
+
+## Publication attempts
+
+- `2026-07-21T07:32:59Z`: Publisher／configuration fingerprint変更後、owner-enabled `kento-github-publish`をclean HEAD `eabb9c08fce0aee92b489c990a44e9bd18be8243`へ1回実行した。Broker gateはrace-enabled test、46 files／92,204 bytes payload、4-platform checksum、collision diagnosticの期待exit `1`を含むclean quickstart 14秒を通過し、verified URL `https://github.com/kento-matsuki/gha-concurrency-cycle`を返した。Public repositoryはowner `kento-matsuki`、default branch `main`で、localとpublicのtree SHA `978dd6ad68e3beda5e3e3310db57180e67c38cdc`が一致した。Releaseは未作成のためsource、`go install`、composite Actionは利用可能だがchecksum付きrelease binary distributionは次のmaintenance対象とする。Launch baselineを`METRICS.jsonl`へ記録し、24時間後reviewを設定した。
+
+## Maintenance history
+
+- `2026-07-21T07:45:36Z`: Aggregate metricsは14日windowでview、clone、download、star、forkがすべて0だったが、公開後13分の初期snapshotであり採用失敗とは判定しない。Open Issue／PRは0件、公開main SHA `54f3d936d5bb8371e7cbd853aea5f599208d8300`のGitHub Actions CIはsuccessだったため、credential-isolated engagement brokerで初回release `v0.1.0`を作成した。Release pageは利用可能だがassetは0件で、checksum付きbinaryとそれを取得するAction経路は未完了のため、healthは`attention`、decisionは`improve`を維持し、24時間後review時刻は変更しない。
+- `2026-07-21T09:13:36Z`: 公開`v0.1.0`のasset 0件によりcomposite Actionが404となるdistribution health defectを修正するため、Actionをimmutable SHAの`actions/setup-go`と選択revisionのsource buildへ変更した。Version inputとrelease asset installer依存をAction pathから除去し、clean temp root、safe JSON、collision exit `1`、asset directory不在、cleanupをsmoke testへ固定した。Self-contained publisher gateはrace、vet、license／secret、47 files／96,339 bytes payload、4-platform reproducible package、source-built Action、clean quickstart 14秒を通過した。Public aggregate traffic、Issue、PR、release stateも再確認し、外部採用証拠はまだ無い。修正はlocal clean commit後に専用publisher updateが必要なため、公開healthは`attention`、decisionは`fix`とする。
