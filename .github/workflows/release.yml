@@ -33,7 +33,8 @@ jobs:
           TAG_NAME: ${{ github.event.release.tag_name || inputs.tagName || github.event.client_payload.tagName }}
         run: |
           set -eu
-          export SOURCE_DATE_EPOCH="$(git show -s --format=%ct HEAD)"
+          SOURCE_DATE_EPOCH="$(git show -s --format=%ct HEAD)"
+          export SOURCE_DATE_EPOCH
           scripts/package-release.sh "$TAG_NAME" dist
           (cd dist && sha256sum --check SHA256SUMS)
       - name: Upload exact release assets
