@@ -3,7 +3,6 @@ set -eu
 
 project_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 cd "$project_root"
-actionlint
 
 test -z "$(gofmt -l .)"
 go test -race ./...

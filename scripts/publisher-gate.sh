@@ -14,6 +14,8 @@ if [ "$(uname -s)" != Linux ] || [ "$(uname -m)" != aarch64 ]; then
   exit 1
 fi
 
+command -v actionlint >/dev/null 2>&1 || { echo "actionlint is required on the publisher host" >&2; exit 1; }
+actionlint "$project_root"/.github/workflows/*.yml
 fetch_verified() {
   artifact_url=$1
   artifact_path=$2
