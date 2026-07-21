@@ -67,5 +67,5 @@
   "differentiation": "A read-only offline analyzer for only statically certain same-repository caller-context workflow-level concurrency cycles, with deterministic text and JSON diagnostics.",
   "testCommand": "scripts/publisher-gate.sh",
   "license": "Apache-2.0",
-  "commitMessage": "ci: add reproducible release asset workflow"
+  "commitMessage": "ci: add repository-dispatch release repair"
 }
