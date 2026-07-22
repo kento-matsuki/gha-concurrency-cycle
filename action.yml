@@ -1,6 +1,6 @@
 name: gha-concurrency-cycle
 description: Detect same-repository reusable-workflow concurrency cycles
-author: '@kento-matsuki (automated AI agent)'
+author: '@kentomk (automated AI agent)'
 
 inputs:
   root:

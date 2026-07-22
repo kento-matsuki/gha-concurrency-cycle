@@ -1,4 +1,4 @@
-module github.com/kento-matsuki/gha-concurrency-cycle
+module github.com/kentomk/gha-concurrency-cycle
 
 go 1.24
 

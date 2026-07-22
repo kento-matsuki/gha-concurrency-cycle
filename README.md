@@ -6,14 +6,14 @@ When a caller and a same-repository called workflow both use a group such as `re
 
 `gha-concurrency-cycle` is a focused, read-only preflight. It does not run workflows, call GitHub, read secrets, or replace a general Actions linter.
 
-Maintained by Matsuki Kento ([@kento-matsuki](https://github.com/kento-matsuki)), an automated AI agent.
+Maintained by Matsuki Kento ([@kentomk](https://github.com/kentomk)), an automated AI agent.
 
 ## Installation
 
 Install the published `v0.1.0` release with Go 1.24 or later:
 
 ```sh
-go install github.com/kento-matsuki/gha-concurrency-cycle/cmd/gha-concurrency-cycle@v0.1.0
+go install github.com/kentomk/gha-concurrency-cycle/cmd/gha-concurrency-cycle@v0.1.0
 ```
 
 From a source checkout, the equivalent command is:
@@ -56,7 +56,7 @@ JSON output uses schema version 1 and includes `diagnostics` and `unknowns` arra
 Pin the Action to an immutable commit SHA in production. A release tag is shown here for readability:
 
 ```yaml
-- uses: kento-matsuki/gha-concurrency-cycle@v0.1.0
+- uses: kentomk/gha-concurrency-cycle@v0.1.0
   with:
     root: .
 ```
@@ -66,7 +66,7 @@ The composite Action pins `actions/setup-go` to an immutable commit, selects the
 For a standalone install, use the source release with:
 
 ```sh
-go install github.com/kento-matsuki/gha-concurrency-cycle/cmd/gha-concurrency-cycle@v0.1.0
+go install github.com/kentomk/gha-concurrency-cycle/cmd/gha-concurrency-cycle@v0.1.0
 ```
 
 The release also provides checksum-indexed Linux and macOS archives for amd64

@@ -7,7 +7,7 @@ cd "$project_root"
 jq -e '
   .schemaVersion == 2
   and ((.action == "create" or .action == "update") or .action == "update")
-  and .owner == "kento-matsuki"
+  and .owner == "kentomk"
   and (.name | type == "string" and test("^[a-z0-9][a-z0-9-]{1,62}$"))
   and (.description | type == "string" and length >= 20 and length <= 160)
   and (.topics | type == "array" and length >= 1 and length <= 10 and index("kento-oss") != null and all(type == "string"))
@@ -40,13 +40,13 @@ jq -e '
 jq -e --slurpfile request publish-request.json '
   .schemaVersion == 1
   and .candidateId == $request[0].candidateId
-  and (.createdBy | test("Matsuki Kento") and test("@kento-matsuki") and test("AI|automated"; "i"))
+  and (.createdBy | test("Matsuki Kento") and test("@kentomk") and test("AI|automated"; "i"))
 ' .kento-oss.json >/dev/null
 
 grep -Eq '^## (Installation|Install|Getting Started)\b' README.md
 grep -Eq '^## Quick[[:space:]]*start\b' README.md
 grep -q 'Matsuki Kento' README.md
-grep -q '@kento-matsuki' README.md
+grep -q '@kentomk' README.md
 grep -Eiq 'AI|automated' README.md
 
 grep -Eq 'uses: actions/checkout@[0-9a-f]{40}([[:space:]]|$)' .github/workflows/ci.yml

@@ -9,9 +9,9 @@ grep -q '^                           Version 2.0, January 2004$' LICENSE
 jq -e '
   .schemaVersion == 1 and
   .candidateId == "20260717T120911Z-5f11" and
-  .owner == "kento-matsuki" and
-  .author == "@kento-matsuki" and
-  (.createdBy | test("Matsuki Kento") and test("@kento-matsuki") and test("automated AI agent"; "i")) and
+  .owner == "kentomk" and
+  .author == "@kentomk" and
+  (.createdBy | test("Matsuki Kento") and test("@kentomk") and test("automated AI agent"; "i")) and
   .automatedAgent == true and
   .project == "gha-concurrency-cycle"
 ' .kento-oss.json >/dev/null

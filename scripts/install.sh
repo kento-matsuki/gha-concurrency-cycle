@@ -26,7 +26,7 @@ if [ -n "${GHA_CONCURRENCY_CYCLE_ASSET_DIR:-}" ]; then
   cp "$GHA_CONCURRENCY_CYCLE_ASSET_DIR/$asset" "$archive"
   cp "$GHA_CONCURRENCY_CYCLE_ASSET_DIR/checksums.txt" "$checksums"
 else
-  base_url="https://github.com/kento-matsuki/gha-concurrency-cycle/releases/download/v${version}"
+  base_url="https://github.com/kentomk/gha-concurrency-cycle/releases/download/v${version}"
   curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
     "$base_url/$asset" --output "$archive"
   curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \

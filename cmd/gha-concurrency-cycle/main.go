@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/kento-matsuki/gha-concurrency-cycle/internal/analyzer"
+	"github.com/kentomk/gha-concurrency-cycle/internal/analyzer"
 )
 
 var version = "0.1.0-dev"
